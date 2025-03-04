@@ -22,6 +22,8 @@ Command: kubectl create namespace adi-wordpress-app
 Install the NGINX Ingress Controller using Helm
 Use Helm to install the NGINX Ingress Controller into your Kubernetes Namespace:
 
+command: helm install nginx-ingress ingress-nginx/ingress-nginx --namespace ingress-nginx --create-namespace -f values.yaml
+
 
 # 3. Deploy the MariaDB Service
 The first step is to deploy the MariaDB service, which allows your application to communicate with the database.
@@ -75,6 +77,6 @@ command: helm repo add prometheus-community https://prometheus-community.github.
 command: helm install [unique-name]  prometheus-community/kube-prometheus-stack \
   --set prometheus-node-exporter.service.port=9101 \
   --set prometheus-node-exporter.service.targetPort=9101 \
-  --set prometheus-node-exporter.containerPort=9101
+  --set prometheus-node-exporter.containerPort=9101 -f values.yaml
 
 

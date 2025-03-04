@@ -1,0 +1,20 @@
+controller:
+  rbac:
+    create: "true"
+    scope: "true"
+  scope:
+    enabled: "true"
+  service:
+    type: LoadBalancer
+  ingressClassResource:
+    name: "nginx"
+    enabled: "true"
+    default: "true"
+    controllerValue: "k8s.io/ingress-nginx"
+  namespace: "adi-wordpress-app"
+
+  grafana:
+  server:
+    root_url:
+      "a79f5a0f68d764f44b8a738be4549817-701318126.us-east-1.elb.amazonaws.com/grafana"
+    serve_from_sub_path: "true"
